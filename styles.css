@@ -1,4 +1,4 @@
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --gold: #C9A84C;
@@ -123,7 +123,7 @@
       50% { transform: translateY(-30px) scale(1.05); }
     }
 
-    /* ── HERO GLOBE (rotating logo) ── */
+    /* ── HERO GLOBE (true 3D wireframe sphere) ── */
     .hero-globe-wrap {
       position: absolute;
       top: 130px;
@@ -131,16 +131,8 @@
       z-index: 2;
       width: 240px;
       height: 240px;
-      perspective: 1200px;
       opacity: 0;
       animation: fadeUp 1s 1.4s forwards;
-    }
-    .hero-globe {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
     }
     .globe-glow {
       position: absolute;
@@ -151,53 +143,114 @@
       pointer-events: none;
       animation: globeGlowPulse 4s ease-in-out infinite;
       transition: opacity 0.4s ease;
+      z-index: 0;
     }
     @keyframes globeGlowPulse {
       0%, 100% { opacity: 0.55; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.08); }
     }
-    .globe-ring {
+
+    /* Saturn-style accent rings orbiting outside the sphere */
+    .globe-orbit {
       position: absolute;
       inset: 0;
       border-radius: 50%;
       border: 1px solid var(--border-bright);
       pointer-events: none;
       transform: rotateX(78deg) rotate(0deg);
-      animation: ringSpin 14s linear infinite;
+      animation: orbitSpin 14s linear infinite;
+      z-index: 1;
     }
-    .globe-ring.ring-2 {
+    .globe-orbit.orbit-2 {
       inset: -22px;
       border-color: var(--border);
-      animation: ringSpin 20s linear infinite reverse;
+      animation: orbitSpin 20s linear infinite reverse;
     }
-    @keyframes ringSpin {
+    @keyframes orbitSpin {
       from { transform: rotateX(78deg) rotate(0deg); }
       to   { transform: rotateX(78deg) rotate(360deg); }
     }
-    .globe-logo {
+
+    /* Perspective camera + independent tilt (mouse) + independent spin (auto) layers */
+    .globe-perspective {
       position: relative;
-      z-index: 2;
-      display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-      animation: globeSpin 16s linear infinite;
-      filter: drop-shadow(0 0 22px rgba(201,168,76,0.3));
-      transition: filter 0.4s ease;
-      will-change: transform;
+      z-index: 2;
+      perspective: 900px;
+    }
+    .globe-tilt {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .globe-spin {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: globeSpin 20s linear infinite;
     }
     @keyframes globeSpin {
       from { transform: rotateY(0deg); }
       to   { transform: rotateY(360deg); }
     }
-    .hero-globe-wrap:hover .globe-logo {
-      animation-duration: 3s;
-      filter: drop-shadow(0 0 40px rgba(201,168,76,0.55)) drop-shadow(0 0 14px rgba(201,168,76,0.4));
+
+    /* solid core to suggest volume behind the wireframe */
+    .globe-core {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, rgba(201,168,76,0.16), rgba(10,10,10,0.94) 72%);
+      box-shadow: inset 0 0 40px rgba(201,168,76,0.15), 0 0 30px rgba(201,168,76,0.12);
     }
-    .hero-globe-wrap:hover .globe-glow { animation-duration: 1.3s; }
-    .hero-globe-wrap:hover .globe-ring.ring-1 { animation-duration: 5s; }
-    .hero-globe-wrap:hover .globe-ring.ring-2 { animation-duration: 7s; }
+
+    /* longitude lines: flat circles rotated around Y, foreshortened by perspective */
+    .meridian {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.4);
+    }
+
+    /* latitude rings: flat circles rotated to horizontal, sized/offset per latitude */
+    .latitude {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.28);
+    }
+    .latitude.equator {
+      border-color: rgba(201,168,76,0.6);
+    }
+
+    /* MK embossed on the front face — rotates with the sphere, hides on the back */
+    .globe-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      backface-visibility: hidden;
+      text-shadow: 0 0 18px rgba(201,168,76,0.5);
+    }
+
+    .hero-globe-wrap:hover .globe-spin { animation-duration: 5s; }
+    .hero-globe-wrap:hover .globe-glow { animation-duration: 1.3s; opacity: 1; }
+    .hero-globe-wrap:hover .globe-orbit.orbit-1 { animation-duration: 5s; }
+    .hero-globe-wrap:hover .globe-orbit.orbit-2 { animation-duration: 7s; }
+    .hero-globe-wrap:hover .meridian { border-color: rgba(201,168,76,0.65); }
+    .hero-globe-wrap:hover .latitude { border-color: rgba(201,168,76,0.5); }
+    .hero-globe-wrap:hover .globe-core {
+      box-shadow: inset 0 0 50px rgba(201,168,76,0.25), 0 0 45px rgba(201,168,76,0.22);
+    }
 
     /* ── DATA MOTIF (signature element) ── */
     .hero-data-motif {
