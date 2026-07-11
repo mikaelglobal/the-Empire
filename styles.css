@@ -51,13 +51,16 @@
       border-bottom-color: var(--border);
     }
     .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      color: var(--gold);
-      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
+    }
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
     }
     .nav-links {
       display: flex; gap: 40px; list-style: none;
