@@ -725,6 +725,54 @@
     }
     .footer-copy span { color: var(--gold); }
 
+    .careers-preview {
+      padding: 80px 60px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .careers-preview-card {
+      border: 1px solid var(--border);
+      padding: 36px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .page-careers {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .careers-page {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 140px 60px 80px;
+    }
+    .careers-hero {
+      border: 1px solid var(--border);
+      padding: 48px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      margin-bottom: 32px;
+    }
+    .careers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .career-card {
+      border: 1px solid var(--border);
+      padding: 28px;
+      background: rgba(17,17,17,0.75);
+      backdrop-filter: blur(10px);
+    }
+    .career-card .service-card-num {
+      margin-bottom: 16px;
+    }
+    .career-card .service-name {
+      margin-bottom: 12px;
+    }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -763,6 +811,9 @@
       .project-item { grid-template-columns: 1fr; gap: 16px; }
       .project-year { text-align: left; }
       .project-arrow { display: none; }
+      .careers-preview { padding: 60px 24px 60px; }
+      .careers-page { padding: 120px 24px 60px; }
+      .careers-hero { padding: 32px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
       .hero-data-motif { display: none; }
     }
