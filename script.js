@@ -38,7 +38,7 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.skill-card, .project-item, .stat-item, .reveal').forEach(el => {
+    document.querySelectorAll('.service-card, .project-item, .stat-item, .reveal').forEach(el => {
       observer.observe(el);
     });
 

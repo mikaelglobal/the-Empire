@@ -13,6 +13,8 @@
       --border: rgba(201,168,76,0.15);
       --border-bright: rgba(201,168,76,0.4);
       --accent: #C9A84C;
+      --glow-gold: rgba(201,168,76,0.15);
+      --data-blue: #4A8DB7;
     }
 
     html { scroll-behavior: smooth; }
@@ -143,6 +145,42 @@
     @keyframes orbFloat {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    /* ── DATA MOTIF (signature element) ── */
+    .hero-data-motif {
+      position: absolute;
+      right: 60px; bottom: 60px;
+      width: 340px; height: 160px;
+      z-index: 1;
+      opacity: 0; animation: fadeUp 1s 1.5s forwards;
+    }
+    .data-motif-path {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-dasharray: 480;
+      stroke-dashoffset: 480;
+      animation: drawLine 2.4s 1.7s cubic-bezier(0.65,0,0.35,1) forwards;
+    }
+    .data-motif-fill {
+      fill: url(#dataGradient);
+      opacity: 0;
+      animation: fadeUp 1s 3.6s forwards;
+    }
+    .data-motif-dot {
+      fill: var(--gold);
+      opacity: 0;
+      animation: dotPop 0.5s forwards;
+    }
+    .data-motif-dot.blue { fill: var(--data-blue); }
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes dotPop {
+      from { opacity: 0; transform: scale(0); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .hero-content { position: relative; z-index: 2; max-width: 900px; }
@@ -404,7 +442,7 @@
     .contact-item a:hover { color: var(--gold); }
 
     /* ── SKILLS ── */
-    #skills { background: var(--bg2); }
+    #services { background: var(--bg2); }
 
     .skills-grid {
       display: grid;
@@ -412,7 +450,7 @@
       gap: 2px;
     }
 
-    .skill-card {
+    .service-card {
       background: var(--bg3);
       padding: 48px 40px;
       position: relative;
@@ -421,7 +459,7 @@
       transition: opacity 0.6s, transform 0.6s, background 0.3s;
       cursor: default;
     }
-    .skill-card::before {
+    .service-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0;
       height: 2px;
@@ -429,11 +467,11 @@
       transform: scaleX(0);
       transition: transform 0.5s ease;
     }
-    .skill-card:hover::before { transform: scaleX(1); }
-    .skill-card:hover { background: #1e1e1e; }
-    .skill-card.visible { opacity: 1; transform: translateY(0); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { background: #1e1e1e; }
+    .service-card.visible { opacity: 1; transform: translateY(0); }
 
-    .skill-card-num {
+    .service-card-num {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 4rem;
@@ -442,21 +480,27 @@
       top: 20px; right: 24px;
       line-height: 1;
     }
-    .skill-cat {
+    .service-cat {
       font-size: 0.65rem; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--gold);
       margin-bottom: 20px;
     }
-    .skill-name {
+    .service-name {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.4rem;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
     }
-    .skill-tags {
+    .service-desc {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+    .service-tags {
       display: flex; flex-wrap: wrap; gap: 8px;
     }
-    .skill-tag {
+    .service-tag {
       font-size: 0.7rem;
       padding: 5px 12px;
       border: 1px solid var(--border);
@@ -464,7 +508,7 @@
       letter-spacing: 0.06em;
       transition: border-color 0.2s, color 0.2s;
     }
-    .skill-card:hover .skill-tag {
+    .service-card:hover .service-tag {
       border-color: rgba(201,168,76,0.3);
       color: var(--text-soft);
     }
@@ -563,19 +607,19 @@
     }
 
     /* ── EDUCATION ── */
-    #education { background: var(--bg2); }
+    #founder { background: var(--bg2); }
 
-    .edu-block {
+    .founder-block {
       display: grid;
       grid-template-columns: 200px 1fr;
       gap: 80px;
       align-items: start;
     }
-    .edu-year-col {
+    .founder-year-col {
       text-align: right;
       padding-top: 8px;
     }
-    .edu-year {
+    .founder-year {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 3.5rem;
@@ -583,7 +627,7 @@
       line-height: 1;
       display: block;
     }
-    .edu-status {
+    .founder-status {
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -591,37 +635,37 @@
       margin-top: 8px;
       display: block;
     }
-    .edu-card {
+    .founder-card {
       border: 1px solid var(--border);
       padding: 48px;
       position: relative;
       clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
     }
-    .edu-card::before {
+    .founder-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0;
       height: 1px;
       background: linear-gradient(90deg, var(--gold), transparent 60%);
     }
-    .edu-institution {
+    .founder-institution {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.5rem;
       margin-bottom: 6px;
     }
-    .edu-abbr {
+    .founder-abbr {
       font-size: 0.7rem; letter-spacing: 0.15em;
       text-transform: uppercase; color: var(--gold);
       margin-bottom: 20px;
     }
-    .edu-degree {
+    .founder-degree {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
       font-size: 1.1rem;
       color: var(--text-soft);
       margin-bottom: 16px;
     }
-    .edu-note {
+    .founder-note {
       font-size: 0.78rem;
       color: var(--text-muted);
       padding: 12px 16px;
@@ -722,6 +766,11 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── TABLET ── */
+    @media (max-width: 1200px) {
+      .hero-data-motif { width: 240px; height: 110px; right: 30px; bottom: 30px; }
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 24px 24px; }
@@ -733,19 +782,22 @@
       section { padding: 80px 24px; }
       #about { grid-template-columns: 1fr; gap: 60px; }
       .about-visual { height: 300px; }
-      .edu-block { grid-template-columns: 1fr; gap: 24px; }
-      .edu-year-col { text-align: left; }
+      .founder-block { grid-template-columns: 1fr; gap: 24px; }
+      .founder-year-col { text-align: left; }
       .project-item { grid-template-columns: 1fr; gap: 16px; }
       .project-year { text-align: left; }
       .project-arrow { display: none; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
+      .hero-data-motif { display: none; }
     }
 
     /* Stagger delays for skill cards */
-    .skill-card:nth-child(1) { transition-delay: 0.1s; }
-    .skill-card:nth-child(2) { transition-delay: 0.2s; }
-    .skill-card:nth-child(3) { transition-delay: 0.3s; }
-    .skill-card:nth-child(4) { transition-delay: 0.4s; }
+    .service-card:nth-child(1) { transition-delay: 0.1s; }
+    .service-card:nth-child(2) { transition-delay: 0.2s; }
+    .service-card:nth-child(3) { transition-delay: 0.3s; }
+    .service-card:nth-child(4) { transition-delay: 0.4s; }
+    .service-card:nth-child(even) .service-card-num { color: rgba(74,141,183,0.14); }
+    .service-card:nth-child(even)::before { background: linear-gradient(90deg, transparent, var(--data-blue), transparent); }
 
     /* Stagger for project items */
     .project-item:nth-child(1) { transition-delay: 0.1s; }

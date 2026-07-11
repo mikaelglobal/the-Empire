@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michael Esan — Full Stack Developer</title>
+  <title>MIKAEL GLOBAL — Data Analysis & Web Development</title>
+  <meta name="description" content="MIKAEL GLOBAL is a Lagos-based data analysis and web development firm helping businesses turn raw data into insight and build web solutions that drive growth." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='800' font-size='26' fill='%23C9A84C' text-anchor='middle'%3EMG%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="the.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -18,12 +20,12 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a class="nav-logo" href="#">ME</a>
+    <a class="nav-logo" href="#">MG</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#founder">Founder</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -35,25 +37,43 @@
     <div class="hero-orb hero-orb-2"></div>
 
     <div class="hero-content">
-      <div class="hero-tag">Full Stack Developer — Lagos, Nigeria</div>
+      <div class="hero-tag">Data Analysis & Web Development — Lagos, Nigeria</div>
 
       <h1 class="hero-name">
-        <div class="line"><span class="word">Michael</span></div>
-        <div class="line"><span class="word">Esan.</span></div>
+        <div class="line"><span class="word">MIKAEL</span></div>
+        <div class="line"><span class="word">GLOBAL.</span></div>
       </h1>
 
-      <p class="hero-role">Building digital experiences that matter.</p>
+      <p class="hero-role">Data Analysis · Web Development · Innovation</p>
 
       <p class="hero-desc">
-        Motivated full stack developer skilled in modern frontend &amp; backend technologies —
-        from pixel-perfect UIs to scalable APIs and AI-powered applications.
+        We transform raw data into actionable insights and build web solutions that drive
+        business growth. Based in Lagos, serving clients worldwide.
       </p>
 
       <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">View My Work ↓</a>
-        <a href="#contact" class="btn-secondary">Let's Connect →</a>
+        <a href="#services" class="btn-primary">Our Services ↓</a>
+        <a href="#contact" class="btn-secondary">Get in Touch →</a>
       </div>
     </div>
+
+    <!-- signature data-visualization motif -->
+    <svg class="hero-data-motif" viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="dataGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#C9A84C" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <polygon class="data-motif-fill" points="10,150 10,95 70,110 130,70 190,85 250,40 330,20 330,150" />
+      <polyline class="data-motif-path" points="10,95 70,110 130,70 190,85 250,40 330,20" />
+      <circle class="data-motif-dot" cx="10" cy="95" r="3.5" style="animation-delay:1.9s" />
+      <circle class="data-motif-dot" cx="70" cy="110" r="3.5" style="animation-delay:2.1s" />
+      <circle class="data-motif-dot blue" cx="130" cy="70" r="3.5" style="animation-delay:2.3s" />
+      <circle class="data-motif-dot" cx="190" cy="85" r="3.5" style="animation-delay:2.5s" />
+      <circle class="data-motif-dot blue" cx="250" cy="40" r="3.5" style="animation-delay:2.7s" />
+      <circle class="data-motif-dot" cx="330" cy="20" r="4" style="animation-delay:2.9s" />
+    </svg>
 
     <div class="hero-scroll-hint">
       <div class="scroll-line"></div>
@@ -64,20 +84,20 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-item">
-      <span class="stat-num" data-target="20">0</span>
-      <span class="stat-label">Projects Shipped</span>
+      <span class="stat-num" data-target="25">0</span>
+      <span class="stat-label">Projects Delivered</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="6">0</span>
-      <span class="stat-label">Years Coding</span>
+      <span class="stat-num" data-target="4">0</span>
+      <span class="stat-label">Years of Excellence</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="10">0</span>
-      <span class="stat-label">Technologies</span>
+      <span class="stat-num" data-target="15">0</span>
+      <span class="stat-label">Clients Served</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="100">0</span>
-      <span class="stat-label">% Commitment</span>
+      <span class="stat-num" data-target="50">0</span>
+      <span class="stat-label">TB Data Processed</span>
     </div>
   </div>
 
@@ -86,18 +106,20 @@
     <div class="about-visual">
       <div class="about-frame">
         <div class="about-frame-inner">
-          <div class="about-initials">ME</div>
+          <div class="about-initials">MG</div>
           <div class="about-code-block">
-            <div class="code-comment">// developer.config.js</div>
+            <div class="code-comment">// mikael.config.js</div>
             <br>
-            <div><span class="code-key">const</span> <span class="code-val">michael</span> = {</div>
-            <div>&nbsp; <span class="code-key">role</span>: <span class="code-str">"Full Stack Developer"</span>,</div>
-            <div>&nbsp; <span class="code-key">location</span>: <span class="code-str">"Lagos, Nigeria"</span>,</div>
-            <div>&nbsp; <span class="code-key">focus</span>: [</div>
-            <div>&nbsp;&nbsp;&nbsp; <span class="code-str">"React"</span>, <span class="code-str">"Node.js"</span>,</div>
-            <div>&nbsp;&nbsp;&nbsp; <span class="code-str">"MongoDB"</span>, <span class="code-str">"REST APIs"</span></div>
+            <div><span class="code-key">const</span> <span class="code-val">mikael</span> = {</div>
+            <div>&nbsp; <span class="code-key">company</span>: <span class="code-str">"MIKAEL GLOBAL"</span>,</div>
+            <div>&nbsp; <span class="code-key">founded</span>: <span class="code-val">2021</span>,</div>
+            <div>&nbsp; <span class="code-key">services</span>: [</div>
+            <div>&nbsp;&nbsp;&nbsp; <span class="code-str">"Data Analysis"</span>, <span class="code-str">"Web Dev"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp; <span class="code-str">"UI/UX"</span>, <span class="code-str">"BI"</span></div>
             <div>&nbsp; ],</div>
-            <div>&nbsp; <span class="code-key">available</span>: <span class="code-val">true</span></div>
+            <div>&nbsp; <span class="code-key">location</span>: <span class="code-str">"Lagos, Nigeria"</span>,</div>
+            <div>&nbsp; <span class="code-key">remote</span>: <span class="code-val">true</span>,</div>
+            <div>&nbsp; <span class="code-key">status</span>: <span class="code-str">"Available for projects"</span></div>
             <div>};</div>
           </div>
         </div>
@@ -107,80 +129,91 @@
     </div>
 
     <div class="about-text">
-      <div class="section-eyebrow">Who I Am</div>
-      <h2 class="section-title">Crafting the<br><em style="color:var(--gold);font-style:normal;">web</em>, end-to-end.</h2>
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title">Turning data into<br><em style="color:var(--gold);font-style:normal;">direction</em>.</h2>
       <p class="about-bio">
-        I'm a <strong>motivated Full Stack Developer</strong> with a sharp eye for clean architecture and compelling user experiences. From designing intuitive frontends to building robust backends, I bring ideas to life across the entire stack.
+        <strong>MIKAEL GLOBAL</strong> is a Lagos-based data analysis and web development firm founded by <strong>Michael Esan</strong>. We bridge the gap between raw data and digital experiences — helping businesses make data-driven decisions while building robust, user-centric web applications.
       </p>
       <p class="about-bio">
-        Currently pursuing my BSc at <strong>FUNAAB</strong> while shipping production-ready applications — including an AI-powered research tool and a full-stack client project. I write code that's readable, scalable, and built to last.
+        With a focus on clean architecture, scalable solutions, and actionable analytics, we partner with clients across industries to turn complex problems into elegant, measurable outcomes.
       </p>
 
       <div class="about-contact-row">
         <div class="contact-item">
           <span class="ci-label">Phone</span>
-          <a href="tel:+2349069018772">+234 906 901 8772</a>
+          <a href="tel:+2349069018772">0906 901 8772</a>
         </div>
         <div class="contact-item">
           <span class="ci-label">Email</span>
           <a href="mailto:1stmking@gmail.com">1stmking@gmail.com</a>
         </div>
         <div class="contact-item">
-          <span class="ci-label">Website</span>
-          <a href="https://thekinghimself.netlify.app" target="_blank">thekinghimself.netlify.app</a>
+          <span class="ci-label">Location</span>
+          <span>Lagos, Nigeria (Remote)</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
+  <!-- SERVICES -->
+  <section id="services">
     <div class="section-eyebrow">Capabilities</div>
-    <h2 class="section-title reveal">What I Build With</h2>
+    <h2 class="section-title reveal">What We Do</h2>
 
     <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-card-num">01</div>
-        <div class="skill-cat">Frontend</div>
-        <div class="skill-name">UI Development</div>
-        <div class="skill-tags">
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">React</span>
+      <div class="service-card">
+        <div class="service-card-num">01</div>
+        <div class="service-cat">Analytics</div>
+        <div class="service-name">Data Analysis & Intelligence</div>
+        <p class="service-desc">Transform raw data into actionable insights with comprehensive analysis and visualization.</p>
+        <div class="service-tags">
+          <span class="service-tag">Python</span>
+          <span class="service-tag">SQL</span>
+          <span class="service-tag">Power BI</span>
+          <span class="service-tag">Excel</span>
+          <span class="service-tag">Data Visualization</span>
+          <span class="service-tag">Statistical Analysis</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-num">02</div>
-        <div class="skill-cat">Backend</div>
-        <div class="skill-name">Server & APIs</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">MongoDB</span>
+      <div class="service-card">
+        <div class="service-card-num">02</div>
+        <div class="service-cat">Engineering</div>
+        <div class="service-name">Web Development</div>
+        <p class="service-desc">Build responsive, scalable web applications tailored to your business needs.</p>
+        <div class="service-tags">
+          <span class="service-tag">React</span>
+          <span class="service-tag">Node.js</span>
+          <span class="service-tag">HTML5</span>
+          <span class="service-tag">CSS3</span>
+          <span class="service-tag">MongoDB</span>
+          <span class="service-tag">REST APIs</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-num">03</div>
-        <div class="skill-cat">Tools</div>
-        <div class="skill-name">Dev Workflow</div>
-        <div class="skill-tags">
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">API Integration</span>
+      <div class="service-card">
+        <div class="service-card-num">03</div>
+        <div class="service-cat">Insight</div>
+        <div class="service-name">Business Intelligence</div>
+        <p class="service-desc">Make informed decisions with custom dashboards and real-time reporting.</p>
+        <div class="service-tags">
+          <span class="service-tag">Dashboards</span>
+          <span class="service-tag">Reporting</span>
+          <span class="service-tag">KPI Tracking</span>
+          <span class="service-tag">Predictive Analytics</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-num">04</div>
-        <div class="skill-cat">Soft Skills</div>
-        <div class="skill-name">Problem Solving</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Software Architecture</span>
-          <span class="skill-tag">Technical Research</span>
-          <span class="skill-tag">AI Integration</span>
+      <div class="service-card">
+        <div class="service-card-num">04</div>
+        <div class="service-cat">Strategy</div>
+        <div class="service-name">Digital Strategy</div>
+        <p class="service-desc">Strategic guidance to align your digital products with business goals.</p>
+        <div class="service-tags">
+          <span class="service-tag">Consulting</span>
+          <span class="service-tag">UX Research</span>
+          <span class="service-tag">Product Strategy</span>
+          <span class="service-tag">Growth</span>
         </div>
       </div>
     </div>
@@ -189,7 +222,7 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-eyebrow">Selected Work</div>
-    <h2 class="section-title reveal">Projects</h2>
+    <h2 class="section-title reveal">Client Projects</h2>
 
     <div class="projects-list">
 
@@ -197,9 +230,9 @@
       <a href="https://mumuai.pages.dev" class="project-item" target="_blank">
         <div class="project-year">2026</div>
         <div class="project-info">
-          <h3 class="project-title">MUMU AI</h3>
+          <h3 class="project-title">AI-Powered Research Assistant</h3>
           <p class="project-desc">
-            An AI-powered research assistant that helps users generate academic content and verify research sources in real-time. Built with a full-stack architecture featuring user authentication and seamless AI integration.
+            Client: Academic Research — An AI-powered research assistant that helps users generate academic content and verify research sources in real-time. Built with a full-stack architecture featuring user authentication and seamless AI integration.
           </p>
           <div class="project-features">
             <span class="proj-feature">AI Content Generation</span>
@@ -211,7 +244,6 @@
             <span class="project-tech">HTML5</span>
             <span class="project-tech">MongoDB</span>
             <span class="project-tech">REST API</span>
-            <span class="project-tech">HTML5</span>
             <span class="project-tech">CSS3</span>
           </div>
         </div>
@@ -222,9 +254,9 @@
       <a href="https://radianttouch25.netlify.app" class="project-item" target="_blank">
         <div class="project-year">2025</div>
         <div class="project-info">
-          <h3 class="project-title">Radiant Touch</h3>
+          <h3 class="project-title">Full-Stack Cleaning Service Platform</h3>
           <p class="project-desc">
-            Designed and deployed a responsive full-stack website for a professional cleaning service, establishing a strong online presence with an automatic mailing system and customer database management.
+            Client: Professional Cleaning — Designed and deployed a responsive full-stack website for a professional cleaning service, establishing a strong online presence with an automatic mailing system and customer database management.
           </p>
           <div class="project-features">
             <span class="proj-feature">Full Stack Website</span>
@@ -244,22 +276,22 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
+  <!-- FOUNDER -->
+  <section id="founder">
     <div class="section-eyebrow">Background</div>
-    <h2 class="section-title reveal">Education</h2>
+    <h2 class="section-title reveal">The Founder</h2>
 
-    <div class="edu-block reveal">
-      <div class="edu-year-col">
-        <span class="edu-year">2021</span>
-        <span class="edu-status">In Progress</span>
+    <div class="founder-block reveal">
+      <div class="founder-year-col">
+        <span class="founder-year">2021</span>
+        <span class="founder-status">Founded</span>
       </div>
-      <div class="edu-card">
-        <div class="edu-institution">Federal University of Agriculture Abeokuta</div>
-        <div class="edu-abbr">FUNAAB — Ogun State, Nigeria</div>
-        <div class="edu-degree">BSc. Water Resources Management and Agrometerology</div>
-        <div class="edu-note">
-          Expected Graduation: 2026 — Combining academic studies with real-world development projects and freelance work.
+      <div class="founder-card">
+        <div class="founder-institution">Michael Esan</div>
+        <div class="founder-abbr">Founder &amp; Lead Developer — MIKAEL GLOBAL</div>
+        <div class="founder-degree">Full-stack developer and data analyst with a passion for building solutions that matter.</div>
+        <div class="founder-note">
+          Michael combines technical expertise with a deep understanding of business needs — helping companies leverage data and technology for growth. With a background in Water Resources Management at FUNAAB and years of hands-on development experience, he brings a unique perspective to every project: analytical, creative, and results-driven.
         </div>
       </div>
     </div>
@@ -267,29 +299,29 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-bg-text">HIRE ME</div>
+    <div class="contact-bg-text">HIRE US</div>
     <div class="section-eyebrow" style="justify-content:center;">Get In Touch</div>
-    <p class="contact-intro reveal">Available for freelance & full-time opportunities</p>
+    <p class="contact-intro reveal">Ready to transform your data or build a web solution?</p>
     <h2 class="contact-headline reveal">Let's Build<br>Something <em>Great.</em></h2>
 
     <div class="contact-links reveal">
       <a href="mailto:1stmking@gmail.com" class="contact-link">
         <span>✉ 1stmking@gmail.com</span>
       </a>
-      <a href="tel:++447391546849" class="contact-link">
-        <span>✆ +44 739 154 6849</span>
+      <a href="tel:+2349069018772" class="contact-link">
+        <span>✆ 0906 901 8772</span>
       </a>
-      <a href="https://thekinghimself.netlify.app" target="_blank" class="contact-link">
-        <span>⬡ Portfolio Site</span>
+      <a href="#" class="contact-link">
+        <span>📍 Lagos, Nigeria (Remote)</span>
       </a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-copy">© 2026 <span>Michael Esan</span> — Full Stack Developer</span>
-    <span class="footer-copy">Built by HIM <span></span> — Sheffield, UK</span>
+    <span class="footer-copy">© 2026 <span>MIKAEL GLOBAL</span> — Data Analysis & Web Development</span>
+    <span class="footer-copy">Built by Michael Esan — Lagos, Nigeria</span>
   </footer>
-  <script src="himself.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
