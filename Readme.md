@@ -3,8 +3,8 @@
 > Professional website for **MIKAEL GLOBAL**, a Lagos-based firm specializing in data analysis, web development, and business intelligence.  
 > Built with pure HTML, CSS, and JavaScript — no frameworks, no build tools.
 
-🌐 **Live Site:** [mikaelglobal.netlify.com](https://mikaelglobal.netlify.com)
-[thekinghimself.netlify.com](https://thekinghimself.netlify.com)
+🌐 **Live Site:** [mikaelglobal.netlify.app](https://mikaelglobal.netlify.app)
+[thekinghimself.netlify.app](https://thekinghimself.netlify.app)
 
 ---
 
@@ -121,10 +121,10 @@ Client: Professional Cleaning · HTML5 · CSS3 · JavaScript · MongoDB
 
 | | |
 |--|--|
-| 📧 Email | [1stmking@gmail.com](mailto:1stmking@gmail.com) |
+| 📧 Email | [mikaelglobal01.com](mailto:mikaelglobal01@gmail.com) |
 | 📞 Phone | 0906 901 8772 |
 | 📍 Location | Lagos, Nigeria (Remote) |
-| 🌐 Website | mikaelglobal.com |
+| 🌐 Website | mikaelglobal.netlify.app |
 
 ---
 
