@@ -123,6 +123,82 @@
       50% { transform: translateY(-30px) scale(1.05); }
     }
 
+    /* ── HERO GLOBE (rotating logo) ── */
+    .hero-globe-wrap {
+      position: absolute;
+      top: 130px;
+      right: 90px;
+      z-index: 2;
+      width: 240px;
+      height: 240px;
+      perspective: 1200px;
+      opacity: 0;
+      animation: fadeUp 1s 1.4s forwards;
+    }
+    .hero-globe {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .globe-glow {
+      position: absolute;
+      inset: -34px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.28), transparent 70%);
+      filter: blur(18px);
+      pointer-events: none;
+      animation: globeGlowPulse 4s ease-in-out infinite;
+      transition: opacity 0.4s ease;
+    }
+    @keyframes globeGlowPulse {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+    .globe-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--border-bright);
+      pointer-events: none;
+      transform: rotateX(78deg) rotate(0deg);
+      animation: ringSpin 14s linear infinite;
+    }
+    .globe-ring.ring-2 {
+      inset: -22px;
+      border-color: var(--border);
+      animation: ringSpin 20s linear infinite reverse;
+    }
+    @keyframes ringSpin {
+      from { transform: rotateX(78deg) rotate(0deg); }
+      to   { transform: rotateX(78deg) rotate(360deg); }
+    }
+    .globe-logo {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      animation: globeSpin 16s linear infinite;
+      filter: drop-shadow(0 0 22px rgba(201,168,76,0.3));
+      transition: filter 0.4s ease;
+      will-change: transform;
+    }
+    @keyframes globeSpin {
+      from { transform: rotateY(0deg); }
+      to   { transform: rotateY(360deg); }
+    }
+    .hero-globe-wrap:hover .globe-logo {
+      animation-duration: 3s;
+      filter: drop-shadow(0 0 40px rgba(201,168,76,0.55)) drop-shadow(0 0 14px rgba(201,168,76,0.4));
+    }
+    .hero-globe-wrap:hover .globe-glow { animation-duration: 1.3s; }
+    .hero-globe-wrap:hover .globe-ring.ring-1 { animation-duration: 5s; }
+    .hero-globe-wrap:hover .globe-ring.ring-2 { animation-duration: 7s; }
+
     /* ── DATA MOTIF (signature element) ── */
     .hero-data-motif {
       position: absolute;
@@ -793,6 +869,7 @@
     /* ── TABLET ── */
     @media (max-width: 1200px) {
       .hero-data-motif { width: 240px; height: 110px; right: 30px; bottom: 30px; }
+      .hero-globe-wrap { width: 180px; height: 180px; top: 110px; right: 40px; }
     }
 
     /* ── MOBILE ── */
@@ -816,6 +893,7 @@
       .careers-hero { padding: 32px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
       .hero-data-motif { display: none; }
+      .hero-globe-wrap { top: 24px; right: 24px; width: 110px; height: 110px; }
     }
 
     /* Stagger delays for skill cards */
