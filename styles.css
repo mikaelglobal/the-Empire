@@ -673,6 +673,10 @@
       color: var(--gold);
       background: rgba(201,168,76,0.06);
     }
+    .skill-tag.cert-tag {
+      border-color: rgba(201,168,76,0.35);
+      color: var(--gold);
+    }
 
     /* ── PROJECTS ── */
     #projects { padding: 120px 60px; }
