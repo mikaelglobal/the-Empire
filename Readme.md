@@ -58,19 +58,22 @@ Dark luxury aesthetic · Gold accent system · Rotating 3D wireframe globe · An
 
 ```
 mikael-global/
-├── index.html       # Home page
+├── index.html       # Home page (served at the site root)
 ├── careers.html     # Careers page
+├── feed.html        # Blog / updates page
 ├── styles.css       # CSS file
 ├── script.js        # JavaScript file
 ├── mk_logo.png      # Logo mark (favicon / app icon)
 └── README.md        # You are here
 ```
 
+> Deployment note: static hosts like Netlify resolve `/` to `index.html`. Keep the homepage file named exactly `index.html` so the site root loads correctly.
+
 ---
 
 ## ✦ Customisation
 
-All content lives in `index.html`. Key areas to update:
+All content lives in `index.html`. Keep that filename unchanged for correct root-path hosting. Key areas to update:
 
 | What | Where in the file |
 |------|------------------|
