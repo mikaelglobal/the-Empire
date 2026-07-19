@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "slug": "building-data-dashboards-that-actually-get-used",
+      "title": "Building Data Dashboards That Actually Get Used",
+      "date": "2026-07-19",
+      "readTime": 4,
+      "excerpt": "Most dashboards fail because they're built for stakeholders, not for decisions. Here's how we approach dashboard design at MIKAEL GLOBAL.",
+      "tags": ["Data Analysis", "Dashboards", "Power BI"],
+      "content": "<p>Most dashboards fail because they're built for stakeholders, not for decisions. Here's how we approach dashboard design at MIKAEL GLOBAL.</p><h2>The Problem</h2><p>Dashboards are often designed to display data, not to drive action. They become visual clutter — beautiful but useless.</p><p>At MIKAEL GLOBAL, we take a different approach: we start with the decision, not the data.</p><h2>Our Framework</h2><h3>1. Define the Decision</h3><p>What specific decision does this dashboard inform? Without a clear answer, the dashboard is not worth building.</p><h3>2. Design for Action</h3><p>Every chart, metric, and filter should guide the user toward a specific action. If it doesn't, cut it.</p><h3>3. Test with Real Users</h3><p>We prototype early and test with actual decision-makers — not with managers, but with the people who click the buttons.</p><h2>Real Results</h2><p>Using this framework, we've helped clients reduce report-generation time by 60% and increase data-driven decision frequency by 2x.</p><p><strong>Read the full breakdown →</strong> Or reach out if you want us to build one for you.</p>"
+    },
+    {
+      "id": 2,
+      "slug": "modern-web-development-without-the-framework-fatigue",
+      "title": "Modern Web Development Without the Framework Fatigue",
+      "date": "2026-07-15",
+      "readTime": 3,
+      "excerpt": "Sometimes the best stack is the one that doesn't get in your way. How we build fast, reliable sites with pure HTML, CSS, and JavaScript.",
+      "tags": ["Web Development", "Performance", "Vanilla JS"],
+      "content": "<p>Sometimes the best stack is the one that doesn't get in your way. At MIKAEL GLOBAL, we often build with pure HTML, CSS, and JavaScript — no frameworks, no build tools, no fatigue.</p><h2>Why Vanilla?</h2><p>Frameworks add complexity, bundle sizes, and cognitive overhead. For many projects, they're overkill.</p><p>With a disciplined approach to organization and a handful of vanilla patterns, we build sites that are:</p><ul><li><strong>Faster</strong> — no framework runtime, smaller bundles</li><li><strong>More maintainable</strong> — no version churn, no breaking changes</li><li><strong>Easier to debug</strong> — you're reading the code that actually runs</li></ul><h2>Our Approach</h2><h3>Progressive Enhancement</h3><p>Start with semantic HTML, layer CSS for styling, and add JavaScript for interactivity. Every layer works without the ones beneath it.</p><h3>Component Thinking Without Components</h3><p>We use partials, template literals, and a simple module pattern to keep code DRY without introducing a framework.</p><h2>When We Reach for a Framework</h2><p>We use React when the project genuinely needs it — complex state, heavy interactivity, or team preference. But we always ask: <em>do we really need this?</em></p><p>Most of the time, the answer is no.</p>"
+    },
+    {
+      "id": 3,
+      "slug": "predictive-analytics-for-small-businesses",
+      "title": "Predictive Analytics for Small Businesses: A Practical Guide",
+      "date": "2026-07-10",
+      "readTime": 5,
+      "excerpt": "You don't need a data science team to start predicting customer behavior. Here's a practical framework for small businesses.",
+      "tags": ["Data Analysis", "Predictive Analytics", "Business Intelligence"],
+      "content": "<p>You don't need a data science team to start predicting customer behavior. At MIKAEL GLOBAL, we've built predictive models for businesses with as few as 50 customers.</p><h2>The Framework</h2><h3>Step 1: Define What You're Predicting</h3><p>Start with a clear business question: <em>Which customers are most likely to churn next month?</em> or <em>What's the optimal price point for this product?</em></p><h3>Step 2: Gather the Right Data</h3><p>You likely have more data than you think. Transaction history, website behavior, support tickets — it's all valuable.</p><h3>Step 3: Choose the Right Model</h3><p>For most small businesses, a simple logistic regression or decision tree performs just as well as a complex neural network — and is far easier to explain.</p><h2>Tools We Use</h2><ul><li><strong>Python</strong> with pandas, scikit-learn, and statsmodels</li><li><strong>R</strong> for statistical analysis</li><li><strong>Power BI</strong> for visualization</li></ul><h2>Case Study</h2><p>We helped a Lagos-based retailer predict stock-outs 2 weeks in advance with 85% accuracy. Result: 30% reduction in lost sales and 20% less inventory holding cost.</p><p><strong>Want to try this for your business? Get in touch.</strong></p>"
+    }
+  ]
+}

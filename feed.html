@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page-careers">
+<body class="page-blog">
   <nav id="navbar">
     <a class="nav-logo" href="index.html" aria-label="MIKAEL GLOBAL home">
       <img src="mk_logo.png" alt="MIKAEL GLOBAL logo" />
@@ -22,45 +22,47 @@
       <li><a href="index.html#services">Services</a></li>
       <li><a href="index.html#skills">Skills</a></li>
       <li><a href="index.html#projects">Projects</a></li>
-      <li><a href="feed.html">Blog</a></li>
+      <li><a href="feed.html" class="active">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <main class="careers-page">
-    <section class="careers-hero">
+  <main class="blog-page">
+    <!-- Hero -->
+    <section class="blog-hero">
       <div class="section-eyebrow">Blog</div>
-      <h1 class="section-title">The feed is warming up.</h1>
+      <h1 class="section-title">Insights & Build Notes.</h1>
       <p class="about-bio">
-        This is where posts on data analysis, web development, and behind-the-scenes project breakdowns
-        will be published. Nothing here yet — check back soon.
+        Writing on data analysis, web development, business intelligence, and the
+        craft of building things that work.
       </p>
-      <div class="hero-ctas">
-        <a href="index.html#contact" class="btn-primary">Get Notified</a>
-        <a href="index.html" class="btn-secondary">← Back Home</a>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-grid-section" id="blog-grid">
+      <div class="blog-filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Data Analysis">Data</button>
+        <button class="filter-btn" data-filter="Web Development">Web</button>
+        <button class="filter-btn" data-filter="Business Intelligence">BI</button>
+      </div>
+      <div class="blog-grid" id="blogGrid">
+        <!-- Posts rendered by JavaScript -->
       </div>
     </section>
 
-    <section class="careers-grid">
-      <article class="career-card">
-        <div class="service-card-num">01</div>
-        <div class="service-cat">Status</div>
-        <div class="service-name">No posts published yet</div>
-        <p class="service-desc">The first articles are in progress. This feed will update as soon as they're live.</p>
-      </article>
-
-      <article class="career-card">
-        <div class="service-card-num">02</div>
-        <div class="service-cat">What's Coming</div>
-        <div class="service-name">Data & Build Notes</div>
-        <p class="service-desc">Expect write-ups on data analysis workflows, dashboards, and web builds drawn from real project work.</p>
-      </article>
-
-      <article class="career-card">
-        <div class="service-card-num">03</div>
-        <div class="service-cat">Stay In The Loop</div>
-        <div class="service-name">Reach Out</div>
-        <p class="service-desc">Want a heads-up when the first post drops? Send a message and we'll let you know.</p>
+    <!-- Single Post View (hidden by default) -->
+    <section class="blog-post-view" id="blogPostView" style="display:none;">
+      <button class="back-to-feed" id="backToFeed">← Back to all posts</button>
+      <article class="blog-post-full">
+        <div class="post-meta">
+          <span class="post-date" id="postDate"></span>
+          <span class="post-readtime" id="postReadTime"></span>
+        </div>
+        <h1 class="post-title" id="postTitle"></h1>
+        <div class="post-tags" id="postTags"></div>
+        <div class="post-content" id="postContent"></div>
       </article>
     </section>
   </main>
