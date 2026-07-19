@@ -142,14 +142,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const postView = document.getElementById('blogPostView');
   const backBtn = document.getElementById('backToFeed');
 
-  if (blogGrid) {
-    blogGrid.innerHTML = `
-      <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--text);opacity:0.5;">
-        Loading posts…
-      </div>
-    `;
-  }
+  // Only run if there's a blog grid on the page
+  if (!blogGrid) return;
 
+  // Check if we are on the full feed page (has #blogPostView)
+  const isFeedPage = postView !== null;
+
+  // Show loading state
+  blogGrid.innerHTML = `
+    <div style="grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--text);opacity:0.5;">
+      Loading posts…
+    </div>
+  `;
+
+  // ── Fetch posts ──
   fetch('posts.json')
     .then(res => {
       if (!res.ok) throw new Error('Failed to load posts');
@@ -165,7 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         return;
       }
-      renderPostCards(posts);
+      // Limit to 3 posts on the homepage, show all on the feed page
+      const limit = isFeedPage ? posts.length : 3;
+      renderPostCards(posts, limit);
     })
     .catch(err => {
       console.error('Blog error:', err);
@@ -176,21 +184,32 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     });
 
-  function renderPostCards(posts) {
+  // ── Render post cards ──
+  function renderPostCards(posts, limit) {
+    // Sort by date (newest first)
     const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const limitedPosts = sorted.slice(0, limit);
 
-    blogGrid.innerHTML = sorted.map(post => `
-      <article class="blog-card" data-id="${post.id}" data-tags="${post.tags.join(',')}">
-        <div class="blog-card-date">${formatDate(post.date)}</div>
-        <h3 class="blog-card-title">${post.title}</h3>
-        <p class="blog-card-excerpt">${post.excerpt}</p>
-        <div class="blog-card-footer">
-          <span class="blog-card-readtime">${post.readTime} min read</span>
-          <button class="blog-card-link" data-id="${post.id}">Read →</button>
-        </div>
-      </article>
-    `).join('');
+    blogGrid.innerHTML = limitedPosts.map(post => {
+      const imageHtml = post.image 
+        ? `<img class="blog-card-image" src="${post.image}" alt="${post.title}" loading="lazy" />` 
+        : '';
+      
+      return `
+        <article class="blog-card" data-id="${post.id}" data-tags="${post.tags.join(',')}">
+          ${imageHtml}
+          <div class="blog-card-date">${formatDate(post.date)}</div>
+          <h3 class="blog-card-title">${post.title}</h3>
+          <p class="blog-card-excerpt">${post.excerpt}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-readtime">${post.readTime} min read</span>
+            <button class="blog-card-link" data-id="${post.id}">Read →</button>
+          </div>
+        </article>
+      `;
+    }).join('');
 
+    // ── Click handlers for "Read" buttons ──
     document.querySelectorAll('.blog-card-link').forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -200,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+    // ── Click on card also opens ──
     document.querySelectorAll('.blog-card').forEach(card => {
       card.addEventListener('click', function() {
         const id = parseInt(this.dataset.id);
@@ -208,47 +228,65 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const filter = this.dataset.filter;
-        document.querySelectorAll('.blog-card').forEach(card => {
-          if (filter === 'all') {
-            card.style.display = '';
-          } else {
-            const tags = card.dataset.tags.split(',');
-            card.style.display = tags.includes(filter) ? '' : 'none';
-          }
+    // ── Filter functionality (only on feed page) ──
+    if (isFeedPage) {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const filter = this.dataset.filter;
+          document.querySelectorAll('.blog-card').forEach(card => {
+            if (filter === 'all') {
+              card.style.display = '';
+            } else {
+              const tags = card.dataset.tags.split(',');
+              card.style.display = tags.includes(filter) ? '' : 'none';
+            }
+          });
         });
       });
-    });
 
-    const activeFilter = document.querySelector('.filter-btn.active');
-    if (activeFilter) {
-      activeFilter.click();
+      // Apply current filter after rendering
+      const activeFilter = document.querySelector('.filter-btn.active');
+      if (activeFilter) {
+        activeFilter.click();
+      }
     }
   }
 
+  // ── Show single post ──
   function showPost(post) {
+    if (!isFeedPage) {
+      // If on homepage, redirect to the feed page with the post hash
+      window.location.href = `feed.html#post-${post.slug}`;
+      return;
+    }
+
+    // Hide grid, show post view
     document.getElementById('blog-grid').style.display = 'none';
     postView.style.display = 'block';
 
+    // Populate content
     document.getElementById('postTitle').textContent = post.title;
     document.getElementById('postDate').textContent = formatDate(post.date);
     document.getElementById('postReadTime').textContent = `${post.readTime} min read`;
     document.getElementById('postContent').innerHTML = post.content;
 
+    // Tags
     const tagsContainer = document.getElementById('postTags');
     tagsContainer.innerHTML = post.tags.map(tag =>
       `<span class="post-tag">${tag}</span>`
     ).join('');
 
+    // Scroll to top of post
     postView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Update URL hash
     history.pushState(null, '', `#post-${post.slug}`);
   }
 
+  // ── Back to feed ──
   if (backBtn) {
     backBtn.addEventListener('click', function() {
       postView.style.display = 'none';
@@ -258,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ── Handle hash on load ──
   function checkHash() {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#post-')) {
@@ -267,7 +306,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
           const post = data.posts.find(p => p.slug === slug);
           if (post) {
-            renderPostCards(data.posts);
+            // Render cards first so showPost works
+            const allPosts = data.posts || [];
+            renderPostCards(allPosts, allPosts.length);
             setTimeout(() => showPost(post), 100);
           }
         })
@@ -275,8 +316,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Check hash after page loads
   setTimeout(checkHash, 300);
 
+  // ── Helper: format date ──
   function formatDate(dateStr) {
     const d = new Date(dateStr);
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
