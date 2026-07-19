@@ -23,7 +23,9 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="careers.html">Careers</a></li>
       <li><a href="#founder">Founder</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -231,17 +233,78 @@
     </div>
   </section>
 
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-eyebrow">Toolkit</div>
+    <h2 class="section-title reveal">Skills</h2>
+
+    <div class="skills-panel">
+      <div class="skill-group reveal">
+        <div class="skill-group-head">
+          <span class="skill-group-num">01</span>
+          <span class="skill-group-name">Data & Analytics</span>
+        </div>
+        <div class="skill-tag-row">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Statistical Analysis</span>
+          <span class="skill-tag">Data Visualization</span>
+          <span class="skill-tag">Predictive Analytics</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-head">
+          <span class="skill-group-num">02</span>
+          <span class="skill-group-name">Web Development</span>
+        </div>
+        <div class="skill-tag-row">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-head">
+          <span class="skill-group-num">03</span>
+          <span class="skill-group-name">Tools & Platforms</span>
+        </div>
+        <div class="skill-tag-row">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Netlify</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Jupyter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-eyebrow">Selected Work</div>
     <h2 class="section-title reveal">Client Projects</h2>
 
+    <div class="project-filters reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="data">Data Analysis</button>
+    </div>
+
     <div class="projects-list">
 
       <!-- MUMU AI -->
-      <a href="https://mumuai.pages.dev" class="project-item" target="_blank">
+      <a href="https://mumuai.pages.dev" class="project-item" data-category="web" target="_blank">
         <div class="project-year">2026</div>
         <div class="project-info">
+          <span class="project-category-tag">Web Development</span>
           <h3 class="project-title">AI-Powered Research Assistant</h3>
           <p class="project-desc">
             Client: Academic Research — An AI-powered research assistant that helps users generate academic content and verify research sources in real-time. Built with a full-stack architecture featuring user authentication and seamless AI integration.
@@ -263,9 +326,10 @@
       </a>
 
       <!-- RadiantClean -->
-      <a href="https://radianttouch25.netlify.app" class="project-item" target="_blank">
+      <a href="https://radianttouch25.netlify.app" class="project-item" data-category="web" target="_blank">
         <div class="project-year">2025</div>
         <div class="project-info">
+          <span class="project-category-tag">Web Development</span>
           <h3 class="project-title">Full-Stack Cleaning Service Platform</h3>
           <p class="project-desc">
             Client: Professional Cleaning — Designed and deployed a responsive full-stack website for a professional cleaning service, establishing a strong online presence with an automatic mailing system and customer database management.
@@ -285,6 +349,105 @@
         <div class="project-arrow">↗</div>
       </a>
 
+      <!-- Plant Growth Analysis -->
+      <a href="https://github.com/the-kinghimself/plant-growth-analysis" class="project-item" data-category="data" target="_blank">
+        <div class="project-year">2026</div>
+        <div class="project-info">
+          <span class="project-category-tag data">Data Analysis</span>
+          <h3 class="project-title">Plant Growth Analysis: Rainwater vs Groundwater Irrigation</h3>
+          <p class="project-desc">
+            A 13-week comparative study of growth performance across four crops (cucumber, ewedu, okra, tete) under rainwater and groundwater irrigation, with a full R workflow from raw data to publication-ready plots.
+          </p>
+          <div class="project-features">
+            <span class="proj-feature">Growth Rate Analysis</span>
+            <span class="proj-feature">Mixed-Effects Modeling</span>
+            <span class="proj-feature">Statistical Testing</span>
+          </div>
+          <div class="project-stack" style="margin-top:16px;">
+            <span class="project-tech">R</span>
+            <span class="project-tech">ggplot2</span>
+            <span class="project-tech">dplyr</span>
+            <span class="project-tech">rstatix</span>
+            <span class="project-tech">lme4</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <!-- Water Quality Assessment -->
+      <a href="https://github.com/the-kinghimself/water-quality-assessment" class="project-item" data-category="data" target="_blank">
+        <div class="project-year">2026</div>
+        <div class="project-info">
+          <span class="project-category-tag data">Data Analysis</span>
+          <h3 class="project-title">Water Quality Assessment</h3>
+          <p class="project-desc">
+            An R workflow that evaluates water quality data against WHO guidelines across sampling locations, converting units, flagging compliance status, and exporting summary charts and workbooks.
+          </p>
+          <div class="project-features">
+            <span class="proj-feature">WHO Compliance Evaluation</span>
+            <span class="proj-feature">Unit Conversion</span>
+            <span class="proj-feature">Automated Excel Export</span>
+          </div>
+          <div class="project-stack" style="margin-top:16px;">
+            <span class="project-tech">R</span>
+            <span class="project-tech">ggplot2</span>
+            <span class="project-tech">dplyr</span>
+            <span class="project-tech">tidyr</span>
+            <span class="project-tech">writexl</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <!-- Postpartum Medicinal Plant Analysis -->
+      <a href="https://github.com/the-kinghimself/analysis-of-postpartum-medicinal-plants" class="project-item" data-category="data" target="_blank">
+        <div class="project-year">2026</div>
+        <div class="project-info">
+          <span class="project-category-tag data">Data Analysis</span>
+          <h3 class="project-title">Postpartum Medicinal Plant Analysis</h3>
+          <p class="project-desc">
+            An ethnobotanical survey analysis computing Frequency of Citation and Use Value for postpartum medicinal plants, with demographic summaries and visual breakdowns of preparation methods and administration routes.
+          </p>
+          <div class="project-features">
+            <span class="proj-feature">Survey Data Analysis</span>
+            <span class="proj-feature">Use Value Scoring</span>
+            <span class="proj-feature">Demographic Summary</span>
+          </div>
+          <div class="project-stack" style="margin-top:16px;">
+            <span class="project-tech">R</span>
+            <span class="project-tech">ggplot2</span>
+            <span class="project-tech">dplyr</span>
+            <span class="project-tech">forcats</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-eyebrow">Writing</div>
+    <h2 class="section-title reveal">From the Blog</h2>
+
+    <div class="blog-grid">
+      <a href="feed.html" class="blog-item reveal">
+        <div class="blog-item-tag">Coming Soon</div>
+        <h3 class="blog-item-title">Notes on data, code, and building things</h3>
+        <p class="blog-item-desc">Posts on data analysis workflows, web development, and lessons from client work will land here first.</p>
+        <span class="blog-item-link">Visit the feed ↗</span>
+      </a>
+      <a href="feed.html" class="blog-item reveal">
+        <div class="blog-item-tag">Coming Soon</div>
+        <h3 class="blog-item-title">Behind the build: project breakdowns</h3>
+        <p class="blog-item-desc">Deep dives into how projects like the ones above get planned, built, and shipped.</p>
+        <span class="blog-item-link">Visit the feed ↗</span>
+      </a>
+    </div>
+
+    <div class="blog-cta reveal">
+      <a href="feed.html" class="btn-secondary">View All Posts →</a>
     </div>
   </section>
 
@@ -295,7 +458,7 @@
 
     <div class="founder-block reveal">
       <div class="founder-year-col">
-        <span class="founder-year">2021</span>
+        <span class="founder-year">2026</span>
         <span class="founder-status">Founded</span>
       </div>
       <div class="founder-card">

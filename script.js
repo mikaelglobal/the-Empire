@@ -13,8 +13,25 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.service-card, .project-item, .stat-item, .reveal').forEach(el => {
+    document.querySelectorAll('.service-card, .project-item, .stat-item, .skill-group, .blog-item, .reveal').forEach(el => {
       observer.observe(el);
+    });
+
+    // ── PROJECT CATEGORY FILTER ──
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        projectItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.classList.toggle('filtered-out', !show);
+        });
+      });
     });
 
     // ── COUNT-UP ANIMATION ──

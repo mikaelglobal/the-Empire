@@ -621,8 +621,99 @@
       color: var(--text-soft);
     }
 
+    /* ── SKILLS ── */
+    #skills { padding: 120px 60px; }
+
+    .skills-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .skill-group {
+      background: var(--bg2);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      align-items: start;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .skill-group.visible { opacity: 1; transform: translateY(0); }
+    .skill-group-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .skill-group-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: rgba(201,168,76,0.3);
+    }
+    .skill-group-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .skill-tag-row {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .skill-tag {
+      font-size: 0.72rem;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .skill-tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+
     /* ── PROJECTS ── */
     #projects { padding: 120px 60px; }
+
+    .project-filters {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .filter-btn:hover { color: var(--text-soft); border-color: var(--border-bright); }
+    .filter-btn.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+    .project-category-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 10px;
+      margin-bottom: 14px;
+    }
+    .project-category-tag.data {
+      color: var(--data-blue);
+      border-color: rgba(74,141,183,0.35);
+    }
+    .project-item.filtered-out { display: none; }
 
     .projects-list {
       display: flex; flex-direction: column; gap: 2px;
@@ -713,6 +804,64 @@
       font-size: 0.5rem;
       color: var(--gold);
     }
+
+    /* ── BLOG ── */
+    #blog { padding: 120px 60px; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .blog-item {
+      display: block;
+      border: 1px solid var(--border);
+      padding: 36px;
+      text-decoration: none;
+      background: var(--bg2);
+      position: relative;
+      overflow: hidden;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s, border-color 0.3s, background 0.3s;
+    }
+    .blog-item.visible { opacity: 1; transform: translateY(0); }
+    .blog-item:hover {
+      border-color: var(--border-bright);
+      background: var(--bg3);
+    }
+    .blog-item-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 10px;
+      margin-bottom: 18px;
+    }
+    .blog-item-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    .blog-item:hover .blog-item-title { color: var(--gold); }
+    .blog-item-desc {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .blog-item-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    .blog-cta { text-align: center; }
 
     /* ── EDUCATION ── */
     #founder { background: var(--bg2); }
@@ -947,6 +1096,11 @@
       .careers-preview { padding: 60px 24px 60px; }
       .careers-page { padding: 120px 24px 60px; }
       .careers-hero { padding: 32px; }
+      #skills { padding: 80px 24px; }
+      .skill-group { grid-template-columns: 1fr; gap: 16px; padding: 28px 24px; }
+      #projects { padding: 80px 24px; }
+      #blog { padding: 80px 24px; }
+      .blog-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
       .hero-data-motif { display: none; }
       .hero-globe-wrap { top: 24px; right: 24px; width: 110px; height: 110px; }
